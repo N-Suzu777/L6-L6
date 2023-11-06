@@ -1,0 +1,11 @@
+<%= form_tag products_create_path, method: :post, data: { turbo: false } do %>
+    <%= label_tag :name, '商品名' %>
+    <%= text_field_tag :name %>
+    <%= label_tag :price, '価格' %>
+    <%= text_field_tag :price %>
+    <%= submit_tag '登録' %>
+<% end %>
+
+<br>
+<%= link_to "トップに戻る" ,root_path %>
+<%= link_to "商品一覧に戻る" ,products_index_path %>

@@ -1,0 +1,12 @@
+<h1>カートに登録中</h1>
+
+<%= form_tag cart_items_create_path, method: :post, data:{ turbo: false } do %>
+    商品：<%= @Citem.name %><br>
+    価格：<%= @Citem.price %>円<br>
+    <%=  label_tag :qty ,'個数'%>：
+    <%= text_field_tag :qty %><br>
+    <br>
+    <%= submit_tag "カートに追加" %>
+<% end %>
+<br>
+<%= link_to '商品一覧に戻る', root_path %>
