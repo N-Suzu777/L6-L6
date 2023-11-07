@@ -1,20 +1,22 @@
 <h1>カートに追加された商品</h1>
 <!--現在p_idとc_idを表示するようにしているため後で商品名と価格の表示に変更する-->
 <!--↑find_by?-->
+
+<% sum = 0 %>
 <% @cartitems.each do |e| %>
+    <% pro = Product.find( e.product_id ) %>
 <li>
-    <%= e.product_id %>
-    <%= e.cart_id %>
-    <%= e.qty %>個
+    <%= pro.name %>
+    <%= pro.price %>円
+    <%= e.qty %>点
     <%= link_to '削除', "/cart_items/#{e.id}", data: { turbo_method: :delete } %><br>
+    <% sum += pro.price * e.qty %>
 </li>
 <% end %>
 <br>
 
-
+合計金額：<%= sum %>円
 <br>
 <%= link_to '商品一覧に戻る', root_path %>
 <!--メモ-->
-<!--p_idとc_idの取得の方法-->
 <!--カート一覧で商品名と価格を表示-->
-<!--git pushができない-->
