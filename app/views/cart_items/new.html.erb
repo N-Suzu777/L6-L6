@@ -1,6 +1,7 @@
 <h1>カートに登録中</h1>
 
 <%= form_tag cart_items_create_path, method: :post, data:{ turbo: false } do %>
+    <%= hidden_field_tag :product_id, params[:id] %>
     商品：<%= @Citem.name %><br>
     価格：<%= @Citem.price %>円<br>
     <%=  label_tag :qty ,'個数'%>：

@@ -7,7 +7,7 @@ class CartItemsController < ApplicationController
 
   def create
     #p_idとc_idの受け取り方わからない
-    @cartitem = Cartitem.new(qty: params[:qty], product_id: @Citem, cart_id: current_cart)
+    @cartitem = Cartitem.new(qty: params[:qty], product_id: params[:product_id], cart_id: session[:cart_id])
     if @cartitem.save
       redirect_to root_path
     else
